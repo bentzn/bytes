@@ -4,6 +4,20 @@ import java.io.IOException;
 import java.util.zip.DataFormatException;
 
 public class MultipleExceptions {
+    public static void main(String[] args) {
+        try {
+            new MultipleExceptions2().storeSomething("request 123");
+        }
+        catch (IOException e) {
+            // Alert the user that it was not possible to store Something
+        }
+        catch (DataFormatException e) {
+            // No need to alert the user
+        }
+    }
+}
+
+class MultipleExceptions2 {
 
     private String getFromServer(String request) throws DataFormatException {
         // gets something from a server - can throw a DataFormatException
@@ -26,16 +40,3 @@ public class MultipleExceptions {
     }
 }
 
-class Caller {
-    public static void main(String[] args) {
-        try {
-            new MultipleExceptions().storeSomething("request 123");
-        }
-        catch (IOException e) {
-            // Alert the user that it was not possible to store Something
-        }
-        catch (DataFormatException e) {
-            // No need to alert the user
-        }
-    }
-}
