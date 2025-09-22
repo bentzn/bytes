@@ -8,4 +8,10 @@ public class DefensiveProgramming {
 
         return param + "_extra";
     }
+    
+    
+    public static void main(String[] args) {
+        System.out.println(getSomething("ABCD"));
+        System.out.println(getSomething(null));
+    }
 }
