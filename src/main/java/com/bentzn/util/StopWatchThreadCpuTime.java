@@ -49,7 +49,7 @@ import java.lang.management.ThreadMXBean;
  * @see ThreadMXBean
  * @see ManagementFactory#getThreadMXBean()
  */
-public class ThreadCpuTimeStopwatch {
+public class StopWatchThreadCpuTime implements StopWatch_i {
     /** ThreadMXBean instance for CPU time measurement */
     private final ThreadMXBean threadMXBean;
 
@@ -66,7 +66,7 @@ public class ThreadCpuTimeStopwatch {
      * Automatically enables CPU time measurement for the current JVM.
      * </p>
      */
-    public ThreadCpuTimeStopwatch() {
+    public StopWatchThreadCpuTime() {
         threadMXBean = ManagementFactory.getThreadMXBean();
         threadMXBean.setThreadCpuTimeEnabled(true);
     }
@@ -78,6 +78,7 @@ public class ThreadCpuTimeStopwatch {
      * 
      * @throws IllegalStateException if measurement is already running
      */
+    @Override
     public void start() {
         if (isRunning) {
             throw new IllegalStateException("Already running");
@@ -112,6 +113,7 @@ public class ThreadCpuTimeStopwatch {
      * @return elapsed CPU time in millis
      * @throws IllegalStateException if measurement has not been started
      */
+    @Override
     public long stop() {
         return stopNanos() / 1_000_000;
     }
