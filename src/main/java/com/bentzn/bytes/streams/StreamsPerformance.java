@@ -6,7 +6,8 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.function.Consumer;
 
-import com.bentzn.util.ThreadCpuTimeStopwatch;
+import com.bentzn.util.StopWatch_i;
+import com.bentzn.util.StopWatchThreadCpuTime;
 
 public class StreamsPerformance {
 
@@ -47,7 +48,7 @@ public class StreamsPerformance {
 
     private static void run(List<Integer> lst, int loops, ResultsCombined results) throws InterruptedException {
         long time0;
-        ThreadCpuTimeStopwatch cpuTimeUtil = new ThreadCpuTimeStopwatch();
+        StopWatch_i cpuTimeUtil = new StopWatchThreadCpuTime();
 
         // Stream/optional
         time0 = System.currentTimeMillis();
