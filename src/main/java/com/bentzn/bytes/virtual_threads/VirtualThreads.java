@@ -14,7 +14,6 @@ import com.bentzn.util.TimeConsumingTasksUtil;
 public class VirtualThreads {
 
     private static final int cntElements = 10_000;
-    private static ExecutorService svcExecutor = Executors.newFixedThreadPool(1000);
     
     private static Supplier<AbstractTask> taskSupplier;
     
@@ -25,7 +24,6 @@ public class VirtualThreads {
         taskSupplier = TaskWallClock::new;
         run("Time intensive");
         
-        svcExecutor.close();
     }
 
     public static void run(String strId) throws InterruptedException {
@@ -103,6 +101,7 @@ public class VirtualThreads {
 
 
     private static void executeWithThreadPool() throws InterruptedException {
+        ExecutorService svcExecutor = Executors.newFixedThreadPool(1000);
         List<AbstractTask> lstTasks = getTaskList();
         for (AbstractTask task : lstTasks) {
             svcExecutor.submit(() -> {
@@ -115,6 +114,8 @@ public class VirtualThreads {
                 Thread.sleep(1);
             }
         }
+        
+        svcExecutor.close();
     }
 
 
