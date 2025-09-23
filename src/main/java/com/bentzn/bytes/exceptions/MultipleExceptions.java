@@ -9,10 +9,10 @@ public class MultipleExceptions {
             new MultipleExceptions2().storeSomething("request 123");
         }
         catch (IOException e) {
-            // Alert the user that it was not possible to store Something
+            // No need to alert the user
         }
         catch (DataFormatException e) {
-            // No need to alert the user
+            // Alert the user that it was not possible to store Something
         }
     }
 }

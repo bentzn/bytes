@@ -46,7 +46,6 @@ public class Interrupted {
         System.out.println("After join");
         System.out.println("    interrupted: " + thr.isInterrupted());
         System.out.println("    alive:       " + thr.isAlive());
-
     }
     
     
