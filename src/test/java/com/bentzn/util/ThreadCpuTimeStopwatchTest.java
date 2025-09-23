@@ -15,11 +15,11 @@ import java.lang.management.ThreadMXBean;
  */
 public class ThreadCpuTimeStopwatchTest {
 
-    private ThreadCpuTimeStopwatch util;
+    private StopWatchThreadCpuTime util;
 
     @BeforeEach
     void setUp() {
-        util = new ThreadCpuTimeStopwatch();
+        util = new StopWatchThreadCpuTime();
     }
 
 
