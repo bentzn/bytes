@@ -40,6 +40,7 @@ public class CollectionsPerformance {
             createCollection(cntElements, map.get(key));
         }
 
+        int sum = 0;
         for (String key : map.keySet()) {
             System.out.println(key);
 
@@ -90,7 +91,7 @@ public class CollectionsPerformance {
             }
 
             // to avoid optimizations
-            System.out.println(coll.stream().count());
+            sum += coll.stream().count();
 
             System.out.println();
         }
