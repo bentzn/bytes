@@ -1,4 +1,4 @@
-package com.bentzn.bytes.lists;
+package com.bentzn.bytes.collections;
 
 import java.util.ArrayList;
 import java.util.Collection;
